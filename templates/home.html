@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>California House Price Prediction</title>
+
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- css -->
+        <style>
+            body {
+                background-color:  #C2EABD;
+                text-align: center;
+            }
+
+            .navbar {
+                background-color: #000000;
+            }
+
+            a {
+                color: #f7ff08;
+                text-align: center;
+            }
+
+            a:hover {
+                color: #ff0808;
+              }
+
+            .icon-bar {
+              position: fixed;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+            }
+
+            .icon-bar a{
+              display: block;
+              text-align: center;
+              padding: 16px;
+              transition: all 0.3s ease;
+              color: white;
+              font-size: 20px;
+            }
+
+            .icon-bar a:hover {
+              background-color: #000;
+            }
+
+            .github {
+              background: #000000;
+              color: white;
+            }
+
+            .linkedin {
+              background: #007bb5;
+              color: white;
+            }
+
+    	</style>
+    </head>
+
+    <body bgcolor=#85dcb>
+
+        <!-- As a heading -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+            <div class="navbar-header"></div>
+          </div>
+        </nav>
+
+        <br>
+        <center>
+            <div class="icon-bar">
+                <a href="https://www.linkedin.com/in/rishabh7795/" target="_blank"class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.github.com/rishabh7795" target="_blank" class="github"><i class="fa fa-github"></i></a>
+            </div>
+            <h1> CALIFORNIA HOUSE PRICE PREDICTION </h1><br>
+
+            <div class="container">
+                <form action="\predict" method="post">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Number of Rooms in the Block</h5>
+                                    <input type="text" name="tot_rooms" id="Total_Rooms" required="required" placeholder="Enter total rooms"><br>
+                                    <h1 style="color:black;font-size:12px;">Eg: 800, 5000</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Bedrooms in the Block</h5>
+                                    <input type="text" name="tot_bedrooms" id="Total_Bedrooms" required="required" placeholder="Enter total bedrooms"><br>
+                                    <h1 style="color:black;font-size:12px;">Eg: 100, 650</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total number of people residing within a block</h5>
+                                    <input type="text" name="population" id="Population" required="required" placeholder="Enter population"><br>
+                                    <h1 style="color:black;font-size:12px;">Eg: 322, 2401</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total number of households for a Block</h5>
+                                    <input type="text" name="household" id="household" required="required" placeholder="Enter household"><br>
+                                    <h1 style="color:black;font-size:12px;">Eg: 126, 1138</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Median income for households within a block of houses (measured in tens of thousands of US Dollars)</h5>
+                                    <input type="text" name="median_income" id="Income" required="required" placeholder="Enter income"><br>
+                                    <h1 style="color:black;font-size:12px;">Eg: 8.133, 2.111</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ocean Proximity</h5><br>
+                                    <select name="Source" id="Source" required="required">
+                                        <option value="1H_OCEAN">1H OCEAN</option>
+                                        <option value="INLAND">INLAND</option>
+                                        <option value="NEAR_OCEAN">NEAR OCEAN</option>
+                                        <option value="NEAR_BAY">NEAR BAY</option>
+                                        <option value="ISLAND">ISLAND</option>
+                                    </select>
+                                    <h1 style="color:black;font-size:12px;">Eg: NEAR BAY</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Submit -->
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+                </form>
+                <br>
+            <br>
+            <h3>{{ prediction_text }}</h3>
+            <br><br>
+            <p>© Rishabh Choudhary 2020</p>
+            </div>
+
+
+    </center>
+
+    </body>
+</html>
